@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="icon" type="image/png" href="https://img.utdstc.com/icon/af8/352/af83526e621d47df3e8c42cbd7aa0ed13afa0f5e670768c83cae86651a7d0f96:200">
+     <title>Registration Page</title>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               margin: 0;
+               padding: 0;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               height: 100vh;
+               background-color: #22223b;
+          }
+
+          .container {
+               background: #9490c0;
+               padding: 20px 30px;
+               border-radius: 8px;
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+               max-width: 400px;
+               width: 100%;
+          }
+
+          h1 {
+               margin-bottom: 20px;
+               font-size: 24px;
+               color: #080606;
+               text-align: center;
+          }
+
+          .form-group {
+               margin-bottom: 15px;
+          }
+
+          label {
+               display: block;
+               margin-bottom: 5px;
+               font-weight: bold;
+               color: #312f2f;
+          }
+
+          input {
+               width: 100%;
+               padding: 10px;
+               border: 1px solid #fcf4f4;
+               border-radius: 4px;
+               box-sizing: border-box;
+               font-size: 16px;
+          }
+
+          input:focus {
+               border-color: #00ff62;
+               outline: none;
+          }
+
+          .btn {
+               width: 100%;
+               padding: 10px;
+               background-color: #007bff;
+               color: white;
+               border: none;
+               border-radius: 4px;
+               font-size: 18px;
+               cursor: pointer;
+          }
+
+          .btn:hover {
+               background-color: #06d433;
+               color:#080606;
+          }
+     </style>
+</head>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+               <center><h1>{{ message }}</h1></center>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+<body>
+     <div class="container">
+          <h1>Register</h1>
+          <form method="post">
+               <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required />
+               </div>
+               <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+               </div>
+               <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required />
+               </div>
+               <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="cpassword" required />
+               </div>
+               <button type="submit" class="btn">Register</button>
+          </form>
+     </div>
+</body>
+
+</html>

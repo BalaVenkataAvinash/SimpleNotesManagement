@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://img.utdstc.com/icon/af8/352/af83526e621d47df3e8c42cbd7aa0ed13afa0f5e670768c83cae86651a7d0f96:200">
+    <title>Welcome to Simple Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #22223b;
+        }
+        .container {
+            text-align: center;
+            background: #9490c0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color:black;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .button {
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Simple Notes</h1>
+        <p>Your personal space to organize and save your notes with ease.</p>
+        <div class="buttons">
+            <a href="{{url_for('register')}}" class="button">Register</a>
+            <a href="{{url_for('login')}}" class="button">Login</a>
+        </div>
+    </div>
+</body>
+</html>

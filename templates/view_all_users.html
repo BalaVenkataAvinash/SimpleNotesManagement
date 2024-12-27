@@ -1,0 +1,37 @@
+<head>
+     <title>Users Viewer</title>
+</head>
+{% extends 'admin_dashboard.html' %}
+{% block addcss %}
+<link rel="stylesheet" href="/static/view.css">
+{% endblock %}
+{% block content %}
+
+<body class="view">
+     <div class="container">
+          <h2>Users Viewer</h2>
+          <table>
+               <thead>
+                    <tr>
+                         <th>User ID</th>
+                         <th>User Name</th>
+                         <th>Email</th>
+                         <th>Actions</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    {% for i in udata %}
+                    <tr>
+                         <td>{{i[0]}}</td>
+                         <td>{{i[1]}}</td>
+                         <td>{{i[2]}}</td>
+                         <td>
+                              <a class="remove-button" href="{{url_for('remove_user',uid=i[0])}}">Remove</a>
+                         </td>
+                    </tr>
+                    {% endfor %}
+               </tbody>
+          </table>
+     </div>
+</body>
+{% endblock %}

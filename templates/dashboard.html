@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://img.utdstc.com/icon/af8/352/af83526e621d47df3e8c42cbd7aa0ed13afa0f5e670768c83cae86651a7d0f96:200">
+    <title>Simple Notes Dashboard</title>
+    {% block addcss %} {% endblock %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #22223b;
+        }
+        h1{
+            color:white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            margin: 100px;
+            padding: 20px;
+            background-color: #9490c0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgb(0, 0, 0);
+        }
+
+        .content h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+               <center><h1>{{ message }}</h1></center>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+<body>
+    <div class="navbar">
+        <h1>Simple Notes Dashboard</h1>
+        <div class="nav-links">
+            <a href="{{url_for('dashboard')}}">Home</a>
+            <a href="{{url_for('addnotes')}}">Add Note</a>
+            <a href="{{url_for('view_all_notes')}}">View All Notes</a>
+            <a href="{{url_for('uplodefile')}}">File Uplode</a>
+            <a href="{{url_for('viewallfiles')}}">View Files</a>
+            <!-- <a href="">Get Excel</a> -->
+            <a href="{{url_for('logout')}}">Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <center>
+            <h2>Welcome to Your Dashboard {{session.get('user')}}</h2>
+            <p>Use the navigation bar above to add new notes, view all your saved notes, or export your notes to an Excel file.</p>
+        </center>
+    </div>
+
+    {% block content %} {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" href="https://img.utdstc.com/icon/af8/352/af83526e621d47df3e8c42cbd7aa0ed13afa0f5e670768c83cae86651a7d0f96:200">
+     <title>OTP Entry</title>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               background-color: #22223b;
+               /* margin: 0;
+               display: flex;
+               justify-content: center;
+               align-items: center; */
+               height: 100vh;
+          }
+
+          .container {
+               background: #9490c0 ;
+               padding: 2rem;
+               border-radius: 8px;
+               box-shadow: 0 4px 10px rgba(0, 0, 0);
+               text-align: center;
+               max-width: 350px;
+               width: 100%;
+          }
+          h1{
+               color:white;
+          }
+
+          h2 {
+               margin-bottom: 1rem;
+               font-size: 1.5rem;
+               font-weight: bold;
+               color: #080707;
+          }
+
+          p {
+               margin-bottom: 1rem;
+               color: #080707;
+               font-size: 0.9rem;
+          }
+
+          /* .otp-inputs {
+               display: flex;
+               justify-content: space-between;
+               margin: 1rem 0;
+          } */
+
+          .otp-inputs input {
+               width: 100px;
+               height: 50px;
+               margin: 1rem 0;
+               text-align: center;
+               font-size: 1.25rem;
+               border: 1px solid #ccc;
+               border-radius: 5px;
+               outline: none;
+               transition: border-color 0.3s ease;
+          }
+
+          .otp-inputs input:focus {
+               border-color: #007bff;
+               box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+          }
+
+          button {
+               background-color: #007bff;
+               color: white;
+               border: none;
+               padding: 0.75rem 1.5rem;
+               border-radius: 5px;
+               font-size: 1rem;
+               cursor: pointer;
+               transition: background-color 0.3s ease;
+          }
+
+          button:hover {
+               background-color: #0056b3;
+          }
+
+          .resend {
+               margin-top: 2rem;
+               font-size: 0.85rem;
+          }
+
+          .resend a {
+               background-color: #007bff;
+               color: white;
+               padding: 10px;
+               border-radius: 5px;
+               text-decoration: none;
+               transition: color 1s ease;
+               transition: background-color 2s ease;
+          }
+
+          .resend a:hover {
+               background-color: #02fa38;
+               color: #f80606;
+          }
+     </style>
+</head>
+{% with messages = get_flashed_messages() %}
+     {% if messages %}
+          {% for message in messages %}
+               <center><h1>{{ message }}</h1></center>
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+<body>
+     <div class="container">
+          <h2>Enter OTP</h2>
+          <p>We have sent an OTP to your email. Please enter it below:</p>
+          <form method="POST">
+               <div class="otp-inputs">
+                    <input type="text" name="otp" placeholder="Enter OTP" required>
+               </div>
+               <button type="submit">Verify</button>
+          </form>
+          <p class="resend">Didn't receive the OTP? <a href="#">Resend</a></p>
+     </div>
+</body>
+
+</html>
